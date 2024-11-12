@@ -1,16 +1,9 @@
 .footer {
-  padding: 0; /* Adjust padding as needed */
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically if needed */
-  background-color: #fcf5e5; /* Footer background to match the page */
+  justify-content: center;
 }
 
 .footer__copyright {
-  margin: 0;
-  padding: 0;
-  /* height: 16px; */
-  /* width: 104px; */
-  color: rgba(33, 33, 33, 0.7);
-  display: inline-block;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }

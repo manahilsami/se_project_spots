@@ -39,6 +39,11 @@
   background-color: transparent;
   opacity: 40%;
   margin: 0;
+  cursor: pointer;
+}
+
+.card__like-btn:hover {
+  background-color: rgb(184, 178, 178);
 }
 
 @media screen and (max-width: 627px) {

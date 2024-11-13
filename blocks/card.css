@@ -17,6 +17,10 @@
   font-size: 20px;
   line-height: 24px;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 353px;
 }
 
 .card__content {

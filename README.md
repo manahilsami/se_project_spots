@@ -49,3 +49,5 @@
 This website is deployed to GitHub Pages:
 
 [Deployment Link](https://manahilsami.github.io/se_project_spots)
+
+[Project Video](https://1drv.ms/v/s!AnhIp33kJ8sraiz0iu3wrpKrwU4?e=ftNx1h)

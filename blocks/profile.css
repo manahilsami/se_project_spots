@@ -119,7 +119,7 @@
   }
 
   .profile__edit-btn {
-    justify-content: center;
+    margin: 0 auto;
   }
 
   .profile__add-btn {

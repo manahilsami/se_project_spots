@@ -35,8 +35,14 @@
   height: 40px;
   background-image: url(../images/Close\ Icon.svg);
   background-color: transparent;
+  /* opacity: 40%; */
   background-size: cover;
   border: none;
+  cursor: pointer;
+}
+
+.modal__close-btn:hover {
+  background-color: rgba(33, 33, 33, 0.9);
 }
 
 .modal__title {
@@ -68,10 +74,15 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
+  cursor: pointer;
 }
 
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 1);
+}
+
+.modal__input:hover {
+  border: 2px solid gray;
 }
 
 .modal__submit-btn {
@@ -86,6 +97,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {

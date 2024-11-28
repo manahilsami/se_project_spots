@@ -35,14 +35,14 @@
   height: 40px;
   background-image: url(../images/Close\ Icon.svg);
   background-color: transparent;
-  /* opacity: 40%; */
+  opacity: 40%;
   background-size: cover;
   border: none;
   cursor: pointer;
 }
 
 .modal__close-btn:hover {
-  background-color: rgba(33, 33, 33, 0.9);
+  opacity: 100%;
 }
 
 .modal__title {
@@ -82,7 +82,7 @@
 }
 
 .modal__input:hover {
-  border: 2px solid gray;
+  border-color: rgba(33, 33, 33, 1);
 }
 
 .modal__submit-btn {

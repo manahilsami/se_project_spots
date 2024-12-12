@@ -22,9 +22,9 @@
 
 .modal__container {
   background: #fff;
-  padding: 32px 50px;
+  padding: 36px 50px 32px;
   max-width: 730px;
-  width: 100%;
+  /* width: 100%; */
   box-sizing: border-box;
   position: relative;
   border-radius: 8px;
@@ -41,12 +41,13 @@
 
 .modal__image {
   width: 100%;
-  max-width: 80vh;
+  max-width: 80vw;
   max-height: 80vh;
   width: auto; /* Maintain aspect ratio */
   height: auto; /* Maintain aspect ratio */
   object-fit: contain;
   border: none;
+  outline: none;
   display: block;
   margin: 0;
   padding: 0;
@@ -69,7 +70,8 @@
 .modal__close-btn_type_preview {
   background-image: url(../images/Close-light-Icon.svg);
   top: 0;
-  right: -12.5px;
+  right: -52.5px;
+  opacity: 1;
 }
 
 .modal__close-btn:hover {

@@ -11,6 +11,9 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
+  z-index: 1000;
+  overflow: hidden;
+  margin: 0;
 }
 
 .modal_opened {
@@ -27,6 +30,28 @@
   border-radius: 8px;
 }
 
+.modal__container_type_preview {
+  padding: 0;
+  margin: 0;
+  border: none;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;  */
+}
+
+.modal__image {
+  width: 100%;
+  max-width: 80vh;
+  max-height: 80vh;
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -39,6 +64,12 @@
   background-size: cover;
   border: none;
   cursor: pointer;
+}
+
+.modal__close-btn_type_preview {
+  background-image: url(../images/Close-light-Icon.svg);
+  top: 0;
+  right: -12.5px;
 }
 
 .modal__close-btn:hover {

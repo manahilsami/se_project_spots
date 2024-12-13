@@ -14,15 +14,21 @@
   z-index: 1000;
   overflow: hidden;
   margin: 0;
+  /* visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear; */
 }
 
 .modal_opened {
   visibility: visible;
+  /* opacity: 1;
+  transition-delay: 0s; */
 }
 
 .modal__container {
-  background: transparent;
+  background: rgba(255, 255, 255, 1);
   padding: 36px 50px 32px;
+  width: 730px;
   max-width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -30,9 +36,13 @@
 }
 
 .modal__container_type_preview {
+  width: auto;
   padding: 0;
   margin: 0;
   border: none;
+  background: transparent;
+  max-width: 100%;
+  position: relative;
 }
 
 .modal__image {
@@ -174,5 +184,11 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__image {
+    width: 288px;
+    border-radius: 4px;
+    left: 16px;
   }
 }

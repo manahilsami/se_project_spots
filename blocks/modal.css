@@ -166,6 +166,10 @@
   cursor: pointer;
 }
 
+.modal__submit-btn_disabled {
+  opacity: 50%;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0;

@@ -129,6 +129,10 @@
   margin-bottom: 0px;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 1);
 }
@@ -138,7 +142,6 @@
 }
 
 .modal__error {
-  /* TO-DO: ADD PROPER FONTS/COLORS */
   display: block;
   color: rgba(255, 0, 0, 0.7);
   font-family: "Poppins", Arial, Helvetica, sans-serif;

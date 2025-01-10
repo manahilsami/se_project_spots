@@ -104,6 +104,28 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+}
+
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
+document.addEventListener("keydown", handleEscapeKey);
+
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", handleOverlayClick);
+});
+
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;

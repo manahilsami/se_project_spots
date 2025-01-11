@@ -98,10 +98,12 @@ previewModalCloseBtn.addEventListener("click", () => {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 function handleEscapeKey(evt) {
@@ -118,8 +120,6 @@ function handleOverlayClick(evt) {
     closeModal(evt.target);
   }
 }
-
-document.addEventListener("keydown", handleEscapeKey);
 
 const modals = document.querySelectorAll(".modal");
 modals.forEach((modal) => {

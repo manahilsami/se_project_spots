@@ -48,7 +48,13 @@ const api = new Api({
 
 api
   .getInitialCards()
-  .then((cards) => {
+  .then((cards) => {})
+  .catch(console.error);
+
+api
+  .getAppInfo()
+  .then(([cards]) => {
+    console.log(cards);
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.prepend(cardElement);

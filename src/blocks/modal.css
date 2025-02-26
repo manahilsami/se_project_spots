@@ -125,7 +125,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  color: rgba(33, 33, 33, 0.3);
+  color: rgba(33, 33, 33, 1);
   cursor: pointer;
   margin-bottom: 0px;
 }
@@ -135,7 +135,7 @@
 }
 
 .modal__input::placeholder {
-  color: rgba(33, 33, 33, 1);
+  color: rgba(33, 33, 33, 0.3);
 }
 
 .modal__input:hover {

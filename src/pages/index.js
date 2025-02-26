@@ -202,6 +202,18 @@ function handleAddCardSubmit(evt) {
     .catch(console.error);
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  const avatarUrl = avatarInput.value;
+  api
+    .editAvatarInfo(avatarUrl)
+    .then((data) => {
+      profileAvatar.src = data.avatar;
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
+}
+
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;

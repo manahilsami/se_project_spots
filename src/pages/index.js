@@ -37,6 +37,7 @@ import Api from "../utils/Api.js";
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
 //   },
 // ];
+const profileAvatar = document.querySelector(".profile__avatar");
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -46,6 +47,7 @@ const api = new Api({
   },
 });
 
+// Destructure the second item in the callback of the .then()
 api
   .getInitialCards()
   .then((cards) => {})
@@ -53,12 +55,16 @@ api
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, userInfo]) => {
     console.log(cards);
+    console.log(userInfo);
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.prepend(cardElement);
     });
+    profileAvatar.src = userInfo.avatar;
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
   })
   .catch(console.error);
 
@@ -161,9 +167,18 @@ modals.forEach((modal) => {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      // Use data argument instead of input values
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {

@@ -84,6 +84,25 @@
   cursor: pointer;
 }
 
+.modal__delform {
+  display: flex;
+}
+
+.modal__close-btn_del {
+  position: relative;
+  top: 0;
+  left: 12px;
+  height: 40px;
+  width: 40px;
+  background-image: url(../images/Close-light-Icon.svg);
+  background-color: transparent;
+  opacity: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+}
+
 .modal__close-btn_type_preview {
   background-image: url(../images/Close-light-Icon.svg);
   top: 0;
@@ -182,6 +201,12 @@
   opacity: 50%;
 }
 
+.modal__form-del {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal__buttons {
   width: 332px;
   height: 52px;
@@ -192,6 +217,10 @@
 }
 
 .modal__submit-btn_del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: rgba(255, 101, 101, 1);
   border: none;
   width: 156px;
@@ -247,6 +276,12 @@
   .modal__close-btn_type_preview {
     top: -48px;
     left: 247px;
+  }
+
+  .modal__close-btn_del::before {
+    content: "×";
+    font-size: 24px;
+    color: #333;
   }
 
   .modal__title {

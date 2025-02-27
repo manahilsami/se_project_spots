@@ -116,7 +116,7 @@ function getCardElement(data) {
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
-  const cardDelBtn = cardElement.querySelector(".card__del-btn");
+  const deleteButton = cardElement.querySelector(".card__del-btn");
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -133,11 +133,9 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
-  cardDelBtn.addEventListener("click", () => {
-    openModal(deleteModal);
-    // cardElement.remove();
-  });
-
+  deleteButton.addEventListener("click", (evt) =>
+    handleDeleteCard(cardElement, data)
+  );
   return cardElement;
 }
 
@@ -203,6 +201,13 @@ function handleAddCardSubmit(evt) {
       closeModal(cardModal);
     })
     .catch(console.error);
+}
+
+function handleDeleteCard(evt) {
+  // evt.target.closest(".card").remove();
+  openModal(deleteModal);
+  // selectedCard = ___;
+  // selectedCardId = ___;
 }
 
 function handleAvatarSubmit(evt) {

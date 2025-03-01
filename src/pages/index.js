@@ -97,6 +97,7 @@ const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const deleteModal = document.querySelector("#delete-modal");
+const deleteForm = deleteModal.querySelector(".modal__form");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -107,6 +108,8 @@ const previewModalCloseBtn = previewModal.querySelector(
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+let selectedCard, selectedCardId;
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -134,7 +137,7 @@ function getCardElement(data) {
   });
 
   deleteButton.addEventListener("click", (evt) =>
-    handleDeleteCard(cardElement, data)
+    handleDeleteCard(cardElement, data._id)
   );
   return cardElement;
 }
@@ -203,11 +206,21 @@ function handleAddCardSubmit(evt) {
     .catch(console.error);
 }
 
-function handleDeleteCard(evt) {
-  // evt.target.closest(".card").remove();
+function handleDeleteSubmit(evt) {
+  evt.preventDefault();
+  api
+    .deleteCard(selectedCardId)
+    .then(() => {
+      selectedCard.remove(); // remove card from DOM
+      closeModal(deleteModal); // close the modal
+    })
+    .catch(console.error);
+}
+
+function handleDeleteCard(cardElement, cardId) {
+  selectedCard = cardElement;
+  selectedCardId = cardId;
   openModal(deleteModal);
-  // selectedCard = ___;
-  // selectedCardId = ___;
 }
 
 function handleAvatarSubmit(evt) {
@@ -255,5 +268,7 @@ avatarModalCloseBtn.addEventListener("click", () => {
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+deleteForm.addEventListener("submit", handleDeleteSubmit);
 
 enableValidation(settings);

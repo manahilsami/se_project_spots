@@ -5,6 +5,7 @@ import {
   resetValidation,
   disableButton,
 } from "../scripts/validation.js";
+import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
 // const initialCards = [
@@ -191,6 +192,9 @@ modals.forEach((modal) => {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
+
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -202,11 +206,18 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      // TODO -  call setButtonText instead
+      setButtonText(submitBtn, false);
+    });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
+
   api
     .addNewCard({ name: cardNameInput.value, link: cardLinkInput.value })
     .then((newCard) => {
@@ -216,18 +227,27 @@ function handleAddCardSubmit(evt) {
       disableButton(cardSubmitBtn, settings);
       closeModal(cardModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false);
+    });
 }
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true, "Delete", "Deleting...");
+
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove(); // remove card from DOM
       closeModal(deleteModal); // close the modal
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false, "Delete");
+    });
 }
 
 function handleDeleteCard(cardElement, cardId) {
@@ -238,6 +258,9 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
+
   const avatarUrl = avatarInput.value;
   api
     .editAvatarInfo(avatarUrl)
@@ -245,7 +268,10 @@ function handleAvatarSubmit(evt) {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false);
+    });
 }
 
 // function handleLike(evt, id) {

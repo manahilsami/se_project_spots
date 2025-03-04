@@ -111,6 +111,16 @@ const cardsList = document.querySelector(".cards__list");
 
 let selectedCard, selectedCardId;
 
+function handleLike(evt, cardLikeBtn, id) {
+  const isLiked = cardLikeBtn.classList.contains("card__like-btn_liked");
+  api
+    .changeLikeStatus(id, isLiked)
+    .then((updatedCard) => {
+      cardLikeBtn.classList.toggle("card__like-btn_liked");
+    })
+    .catch(console.error);
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -121,13 +131,13 @@ function getCardElement(data) {
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
   const deleteButton = cardElement.querySelector(".card__del-btn");
 
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
+
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
-
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked");
-  });
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -136,6 +146,9 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
+  cardLikeBtn.addEventListener("click", (evt) =>
+    handleLike(evt, cardLikeBtn, data._id)
+  );
   deleteButton.addEventListener("click", (evt) =>
     handleDeleteCard(cardElement, data._id)
   );
@@ -234,6 +247,21 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error);
 }
+
+// function handleLike(evt, id) {
+//   // remove - evt.target.classList.toggle("card__like-btn_liked");
+//   // const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+//   const isLiked = cardLikeBtn.classList.contains("card__like-btn_liked"); // 1. check whether card is currently liked or not
+//   // //  ex: const isLiked =___;
+//   api
+//     .changeLikeStatus(id, isLiked)
+//     .then((updatedCard) => {
+//       cardLikeBtn.classList.toggle("card__like-btn_liked");
+//     })
+//     .catch(console.error); // 2. call the changeLikeStatus method, passing it the appropriate arguemnts
+//   // // 3. handle the response (.then) and (.catch)
+//   // // 4. in the .then, toggle active class
+// }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;

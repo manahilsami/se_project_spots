@@ -57,8 +57,6 @@ api
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
-    console.log(cards);
-    console.log(userInfo);
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.prepend(cardElement);
@@ -309,6 +307,7 @@ cardModalBtn.addEventListener("click", () => {
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 avatarModalBtn.addEventListener("click", () => {
+  avatarInput.value = profileAvatar.src;
   openModal(avatarModal);
 });
 avatarForm.addEventListener("submit", handleAvatarSubmit);

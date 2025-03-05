@@ -16,12 +16,6 @@ const api = new Api({
   },
 });
 
-// Destructure the second item in the callback of the .then()
-api
-  .getInitialCards()
-  .then((cards) => {})
-  .catch(console.error);
-
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {

@@ -8,8 +8,6 @@ import {
 import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
-const profileAvatar = document.querySelector(".profile__avatar");
-
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -37,6 +35,7 @@ api
   })
   .catch(console.error);
 
+const profileAvatar = document.querySelector(".profile__avatar");
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalBtn = document.querySelector(".profile__add-btn");
 const avatarModalBtn = document.querySelector(".profile__avatar-btn");

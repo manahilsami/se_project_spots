@@ -241,21 +241,6 @@ function handleAvatarSubmit(evt) {
     });
 }
 
-// function handleLike(evt, id) {
-//   // remove - evt.target.classList.toggle("card__like-btn_liked");
-//   // const cardLikeBtn = cardElement.querySelector(".card__like-btn");
-//   const isLiked = cardLikeBtn.classList.contains("card__like-btn_liked"); // 1. check whether card is currently liked or not
-//   // //  ex: const isLiked =___;
-//   api
-//     .changeLikeStatus(id, isLiked)
-//     .then((updatedCard) => {
-//       cardLikeBtn.classList.toggle("card__like-btn_liked");
-//     })
-//     .catch(console.error); // 2. call the changeLikeStatus method, passing it the appropriate arguemnts
-//   // // 3. handle the response (.then) and (.catch)
-//   // // 4. in the .then, toggle active class
-// }
-
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;

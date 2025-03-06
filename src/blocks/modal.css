@@ -193,7 +193,6 @@
   line-height: 1;
   cursor: pointer;
   display: flex;
-  /* justify-content: center; */
   gap: 20px;
 }
 
@@ -304,6 +303,7 @@
 
   .modal__submit-btn {
     width: 100%;
+    justify-content: center;
   }
 
   .modal__image {

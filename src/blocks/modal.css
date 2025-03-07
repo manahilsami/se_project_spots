@@ -221,7 +221,7 @@
   justify-content: center;
   text-align: center;
   background-color: rgba(255, 101, 101, 1);
-  border: none;
+  /* border: none; */
   width: 156px;
   height: 52px;
   padding: 18px 32px;
@@ -241,6 +241,8 @@
   height: 52px;
   padding: 18px 32px;
   gap: 8px;
+  border-color: rgba(33, 33, 33, 1);
+  border-style: solid;
   border-radius: 8px;
   border-width: 1px;
   font-family: Poppins;
@@ -257,7 +259,10 @@
   }
 
   .modal__container {
-    padding: 12px;
+    padding: 25px 22px;
+    width: 300px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
   }
 
   .modal__container_type_preview {
@@ -278,19 +283,19 @@
   }
 
   .modal__close-btn_del::before {
-    content: "×";
+    /* content: "×"; */
     font-size: 24px;
     color: #333;
   }
 
   .modal__title {
     font-size: 20px;
-    margin: 10px 0 34px;
+    margin: 0 0 24px;
     line-height: 24px;
   }
 
   .modal__label {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .modal__input {
@@ -320,5 +325,100 @@
   #add-card-modal.modal_opened {
     padding: 0 10px;
     box-sizing: border-box;
+  }
+
+  .modal__buttons {
+    display: inline-block;
+    width: 156px;
+    height: 116px;
+    gap: 12px;
+    /* padding-bottom: 12px;
+    padding-top: 80px; */
+  }
+
+  .modal__delform {
+    width: 300px;
+    height: 208px;
+  }
+
+  .modal__container-avatar {
+    width: 300px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 222px;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .modal__form-avatar {
+    height: 146px;
+    margin-bottom: 4px;
+  }
+
+  .modal__submit-btn--avatar {
+    box-sizing: border-box;
+    padding-top: 20px;
+  }
+
+  .modal__title-avatar {
+    padding-top: 8px;
+    line-height: 24px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  .modal__label-avatar {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .modal__container_type_edit {
+    height: 330px;
+    padding: 20px 12px 8px 12px;
+  }
+
+  .modal__label-edit {
+    margin-bottom: 0;
+  }
+
+  .modal__title-edit {
+    margin-bottom: 15px;
+  }
+
+  .modal__container_type_add-card {
+    height: 330px;
+    padding: 12px;
+    margin-bottom: 0;
+  }
+
+  .modal__title_type_add-card {
+    margin-top: 8px;
+  }
+
+  .modal__label_type_add-card {
+    margin-bottom: 0;
+  }
+
+  .modal__container-delform {
+    padding: 12px;
+    height: 208px;
+  }
+
+  .modal__submit-btn_del {
+    margin-bottom: 12px;
+  }
+
+  .modal__title-small {
+    width: 276px;
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  .modal__close-btn_del {
+    position: absolute;
+    left: 264px;
+    top: 85px;
   }
 }

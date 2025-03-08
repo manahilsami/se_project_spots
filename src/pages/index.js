@@ -61,6 +61,9 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalCloseBtn = deleteModal.querySelector(".modal__close-btn_del");
+const deleteModalCancelButton = deleteModal.querySelector(
+  ".modal__submit-btn_cancel"
+);
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -270,6 +273,10 @@ avatarModalCloseBtn.addEventListener("click", () => {
 });
 
 deleteModalCloseBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+deleteModalCancelButton.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 

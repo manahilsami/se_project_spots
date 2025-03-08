@@ -421,4 +421,8 @@
     left: 264px;
     top: 85px;
   }
+
+  .modal_opened {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }
